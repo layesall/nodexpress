@@ -1,0 +1,25 @@
+
+  <footer class="footer">
+    <p> &copy; Layesall </p>
+  </footer>
+
+  <script>
+
+    function onUpdate(id, title) {
+      document.getElementById('id').value = id
+      document.getElementById('title').value = title
+    }
+
+    function onDelete(id) {
+
+      fetch(`/notes/${id}`, {method: 'DELETE'})
+      .then( async (res) => await res.json() )
+      .then((data) => window.location.href = data.routeRacine )
+      .catch((error) => console.log(error))
+
+    }
+
+  </script>
+
+</body>
+</html>
